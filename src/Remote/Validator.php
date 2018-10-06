@@ -66,10 +66,6 @@ class Validator
     {
         $response = new JsonResponse($result, 200);
 
-        if ($result !== true && class_exists(ValidationException::class)) {
-            throw new ValidationException($validator, $response);
-        }
-
         throw new HttpResponseException($response);
     }
 
